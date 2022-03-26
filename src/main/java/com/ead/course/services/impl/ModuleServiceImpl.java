@@ -9,12 +9,14 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class ModuleServiceImpl implements ModuleService {
 
-    private ModuleRepository moduleRepository;
-    private LessonRepository lessonRepository;
+    private final ModuleRepository moduleRepository;
+    private final LessonRepository lessonRepository;
 
     public ModuleServiceImpl(ModuleRepository moduleRepository, LessonRepository lessonRepository) {
         this.moduleRepository = moduleRepository;
@@ -30,4 +32,20 @@ public class ModuleServiceImpl implements ModuleService {
         }
         moduleRepository.delete(moduleModel);
     }
+
+    @Override
+    public ModuleModel save(ModuleModel module) {
+        return moduleRepository.save(module);
+    }
+
+    @Override
+    public Optional<ModuleModel> findByModuleIntoCourse(UUID courseId, UUID moduleId) {
+        return moduleRepository.findModuleIntoCourse(courseId, moduleId);
+    }
+
+    @Override
+    public List<ModuleModel> findAllByCourse(UUID courseId) {
+        return moduleRepository.findAllModulesIntoCourse(courseId);
+    }
+
 }
