@@ -1,6 +1,5 @@
 package com.ead.course.controllers;
 
-import com.ead.course.dtos.CourseDto;
 import com.ead.course.dtos.ModuleDto;
 import com.ead.course.models.CourseModel;
 import com.ead.course.models.ModuleModel;
@@ -46,7 +45,7 @@ public class ModuleController {
     }
 
     @DeleteMapping("/api/v1/courses/{courseId}/modules/{moduleId}")
-    public ResponseEntity<Object> deleteCourse(@PathVariable("courseId") UUID courseId,
+    public ResponseEntity<Object> deleteModule(@PathVariable("courseId") UUID courseId,
                                                @PathVariable("moduleId") UUID moduleId) {
         Optional<ModuleModel> possibleModule = moduleService.findByModuleIntoCourse(courseId, moduleId);
         if (possibleModule.isEmpty()) {
