@@ -107,7 +107,7 @@ public class CourseController {
 
         Optional<CourseModel> possibleCourse = courseService.findById(id);
         if (possibleCourse.isEmpty()) {
-            log.info("GET getOneCourse, courseId {} - NOT FOUND", id);
+            log.warn("GET getOneCourse, courseId {} - NOT FOUND", id);
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Course not found");
         }
 
