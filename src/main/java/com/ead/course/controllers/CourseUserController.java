@@ -76,11 +76,7 @@ public class CourseUserController {
             }
         }
 
-        var courseUserModel = courseUserService.save(new CourseUserModel(null, possibleCourse.get(), request.getUserId()));
-
-        //enviar post para ms authuser
-
-
-        return ResponseEntity.status(HttpStatus.CREATED).body("Subscription created successfully.");
+        var courseUserModel = courseUserService.saveAndSendSubscriptionUserInCourse(new CourseUserModel(null, possibleCourse.get(), request.getUserId()));
+        return ResponseEntity.status(HttpStatus.CREATED).body(courseUserModel);
     }
 }
