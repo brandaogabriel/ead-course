@@ -12,7 +12,7 @@ public class UtilsServiceImpl implements UtilsService {
 
     @Override
     public String createUrlGetAllUsersByCourse(UUID courseId, Pageable pageable) {
-        return "/ead-authuser/api/v1/users?courseId=" + courseId + "&page=" + pageable.getPageNumber() + "&size=" +
+        return "/api/v1/users?courseId=" + courseId + "&page=" + pageable.getPageNumber() + "&size=" +
                 pageable.getPageSize() + "&sort=" + pageable.getSort().toString().replaceAll(": ", ",");
     }
 }
