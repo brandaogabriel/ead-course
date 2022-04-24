@@ -64,4 +64,9 @@ public class AuthUserClient {
         request.setCourseId(courseId);
         restTemplate.postForObject(url, request, String.class);
     }
+
+    public void deleteCourseInAuthUser(UUID courseId) {
+        String url = REQUEST_URL_AUTHUSER + "/api/v1/users/courses/" + courseId;
+        restTemplate.exchange(url, HttpMethod.DELETE, null, String.class);
+    }
 }
