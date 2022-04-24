@@ -83,4 +83,13 @@ public class CourseUserController {
         var courseUserModel = courseUserService.saveAndSendSubscriptionUserInCourse(new CourseUserModel(null, possibleCourse.get(), request.getUserId()));
         return ResponseEntity.status(HttpStatus.CREATED).body(courseUserModel);
     }
+
+    @DeleteMapping("/api/v1/courses/users/{userId}")
+    public ResponseEntity<Object> deleteCourseUserByUser(@PathVariable(value = "userId") UUID userId) {
+        if (!courseUserService.existsByUserId(userId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("CourseUser not found");
+        }
+        courseUserService.deleteCourseUserByUser(userId);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 }
