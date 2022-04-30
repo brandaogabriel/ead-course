@@ -7,12 +7,12 @@ spring:
   application:
     name: ead-course-service
   datasource:
-    url: jdbc:postgresql://localhost:5432/ead-course
+    url: jdbc:postgresql://localhost:5432/ead-course-v2
     username: postgres
     password: password
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
       dialect: org.hibernate.dialect.PostgreSQLDialect
       jdbc:
         lob.non-contextual.creation: true
