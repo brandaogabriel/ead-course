@@ -19,6 +19,8 @@ spring:
     properties:
       hibernate:
         show_sql: true
+  rabbitmq:
+    addresses: ${RABBITMQ_URL:xxxxx}
 
 logging:
   level:
