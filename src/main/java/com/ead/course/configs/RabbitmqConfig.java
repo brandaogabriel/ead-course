@@ -15,6 +15,7 @@ public class RabbitmqConfig {
     @Autowired
     private CachingConnectionFactory cachingConnectionFactory;
 
+    //Create instance of rabbitTemplate to be used in the application
     @Bean
     public RabbitTemplate rabbitTemplate() {
         RabbitTemplate template = new RabbitTemplate(cachingConnectionFactory);
@@ -22,6 +23,7 @@ public class RabbitmqConfig {
         return template;
     }
 
+    //Implementation of converter to deserialize messages using JavaTimeModule library
     @Bean
     public Jackson2JsonMessageConverter messageConverter() {
         ObjectMapper objectMapper = new ObjectMapper();

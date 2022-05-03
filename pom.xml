@@ -34,7 +34,6 @@
             <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
 
-
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
@@ -57,6 +56,7 @@
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
 
+        <!--Specification Dependency-->
         <dependency>
             <groupId>net.kaczmarzyk</groupId>
             <artifactId>specification-arg-resolver</artifactId>
@@ -69,6 +69,7 @@
             <scope>test</scope>
         </dependency>
 
+        <!--Service Registry dependency-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
