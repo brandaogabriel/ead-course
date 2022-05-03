@@ -20,7 +20,7 @@ spring:
       hibernate:
         show_sql: true
   rabbitmq:
-    addresses: ${RABBITMQ_URL:xxxxx}
+    addresses: ${RABBITMQ_HOST:xxx}
 
 logging:
   level:
@@ -33,6 +33,13 @@ ead:
   api:
     url:
       authuser: 'http://ead-authuser-service/ead-authuser'
+  broker:
+    exchange:
+      userEventExchange:
+        name: ead.uservent
+    queue:
+      userEventQueue:
+        name: ead.userevent.ms.course
 
 eureka:
   client:
