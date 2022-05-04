@@ -1,6 +1,7 @@
 package com.ead.course.services.impl;
 
 import com.ead.course.models.UserModel;
+import com.ead.course.repositories.CourseRepository;
 import com.ead.course.repositories.UserRepository;
 import com.ead.course.services.UserService;
 import org.springframework.data.domain.Page;
@@ -16,9 +17,11 @@ import java.util.UUID;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final CourseRepository courseRepository;
 
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository, CourseRepository courseRepository) {
         this.userRepository = userRepository;
+        this.courseRepository = courseRepository;
     }
 
     @Override
@@ -34,6 +37,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @Override
     public void delete(UUID userId) {
+        courseRepository.deleteCourseUserByUser(userId);
         userRepository.deleteById(userId);
     }
 
